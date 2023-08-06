@@ -1,0 +1,12 @@
+/.angular/cache
+# IDE #
+.idea/
+.vscode/
+.nvmrc
+
+# Dependencies #
+node_modules/
+
+# Destinations #
+dist/
+
