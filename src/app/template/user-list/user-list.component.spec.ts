@@ -4,14 +4,13 @@ import {of, Subject} from 'rxjs';
 import {UserListComponent} from './user-list.component';
 import {UserService} from './users.service';
 import {CountryService} from './country.service';
-import {mockCountryData, mockExpectedResult, mockUsers} from './mock-data';
+import {mockUsers} from './mock-data';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
   let userService: UserService;
-  let countryService: CountryService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -43,7 +42,7 @@ describe('UserListComponent', () => {
     expect(userSpy).toHaveBeenCalled();
   });
 
-  it('should unsubscribe onDestroy', () => {
+  it('should unsubscribe onDestroy', async () => {
     const onDestroySpyNext = spyOn(Subject.prototype, 'next').and.callThrough();
     const onDestroySpyComplete = spyOn(Subject.prototype, 'complete').and.callThrough();
     component.ngOnInit();
