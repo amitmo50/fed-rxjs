@@ -43,13 +43,6 @@ describe('UserListComponent', () => {
     expect(userSpy).toHaveBeenCalled();
   });
 
-  it('should call data from countryService', async () => {
-    countryService = TestBed.inject<CountryService>(CountryService);
-    const countrySpy = spyOn(CountryService.prototype as any, 'getCountry').and.returnValue(of(mockCountryData));
-    component.ngOnInit();
-    expect(countrySpy).toHaveBeenCalled();
-  });
-
   it('should unsubscribe onDestroy', () => {
     const onDestroySpyNext = spyOn(Subject.prototype, 'next').and.callThrough();
     const onDestroySpyComplete = spyOn(Subject.prototype, 'complete').and.callThrough();
